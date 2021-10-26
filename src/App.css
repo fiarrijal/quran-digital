@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap");
+
+.App {
+	text-align: center;
+}
+
+.arabic {
+	font-family: "Scheherazade New", serif;
+}
