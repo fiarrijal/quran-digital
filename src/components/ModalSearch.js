@@ -34,7 +34,7 @@ export default function ModalSearch(props) {
 	const handleOk = () => {
 		const selected = quran
 			?.filter((item) => {
-				return item.number == surat;
+				return item.number === surat;
 			})
 			?.map((item) => {
 				return { number: item.number, totalAyat: item.numberOfVerses };
@@ -60,7 +60,7 @@ export default function ModalSearch(props) {
 								placeholder="Pilih Surat"
 								name="surat"
 								onChange={(value) => {
-									setSurat(value);
+									setSurat(parseInt(value));
 								}}
 							>
 								{quran?.map((item) => {
