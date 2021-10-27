@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useEffect, useState, Fragment } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import NavFrontPage from "./NavFrontPage";
 
 function ListSurat() {
 	const [data, setData] = useState([]);
@@ -19,11 +20,12 @@ function ListSurat() {
 
 	return (
 		<div>
+			<NavFrontPage />
 			{data !== undefined && (
-				<Fragment>
+				<div className="mt-12 relative">
 					{data.map((item) => {
 						return (
-							<div key={item.number} className="flex items-center bg-gray-50 border border-gray-600 p-4" onClick={() => history.push(`/surat/${item.number}`)}>
+							<div key={item.number} className="flex items-center bg-gray-50 border-b border-gray-600 p-4" onClick={() => history.push(`/surat/${item.number}`)}>
 								<div className="mr-4">
 									<h3 className="font-bold text-xl text-gray-600">{item.number}</h3>
 								</div>
@@ -38,7 +40,7 @@ function ListSurat() {
 							</div>
 						);
 					})}
-				</Fragment>
+				</div>
 			)}
 		</div>
 	);
