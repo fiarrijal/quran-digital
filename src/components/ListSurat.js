@@ -13,7 +13,7 @@ function ListSurat() {
 
 	useEffect(() => {
 		getQuran().then((response) => {
-			console.log(response.data.data);
+			// console.log(response.data.data);
 			setData(response.data.data);
 		});
 	}, []);

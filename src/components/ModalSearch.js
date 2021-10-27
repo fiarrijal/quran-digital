@@ -20,7 +20,7 @@ export default function ModalSearch(props) {
 		setIsLoading(true);
 		getQuran()
 			.then((response) => {
-				console.log(response.data.data);
+				// console.log(response.data.data);
 				setQuran(response.data.data);
 				setIsLoading(false);
 			})
@@ -28,7 +28,7 @@ export default function ModalSearch(props) {
 	}, []);
 
 	function onChange(value) {
-		console.log(`selected ${value}`);
+		// console.log(`selected ${value}`);
 		setAyat(value);
 	}
 	const handleOk = () => {
@@ -90,7 +90,7 @@ function SelectData(props) {
 			placeholder={props.placeholder}
 			optionFilterProp="children"
 			onChange={props.onChange}
-			filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+			// filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
 		>
 			{props.children}
 		</Select>

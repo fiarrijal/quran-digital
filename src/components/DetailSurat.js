@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { Spin, Tag } from "antd";
+import NavSuratAyat from "./NavSuratAyat";
 
 const getSurat = (id) => {
 	return axios.get(`https://api.quran.sutanlab.id/surah/${id}`);
@@ -32,21 +33,24 @@ export default function DetailSurat() {
 			) : (
 				<>
 					{surat !== undefined && (
-						<div>
-							{surat.data.preBismillah !== null ? <p className="arabic text-center text-lg border-b   px-6 py-4 mb-2">{surat.data.preBismillah?.text.arab} </p> : null}
-							{surat.data.verses.map((item) => {
-								return (
-									<div key={item.number.inSurah} className="flex flex-col border-b px-6 py-4">
-										<span className="mb-4">
-											<Tag color="#108ee9">{item.number.inSurah}</Tag>
-										</span>
+						<>
+							<NavSuratAyat title={surat.data.name.transliteration.id} />
+							<div className="mt-12">
+								{surat.data.preBismillah !== null ? <p className="arabic text-center text-lg border-b   px-6 py-4 mb-2">{surat.data.preBismillah?.text.arab} </p> : null}
+								{surat.data.verses.map((item) => {
+									return (
+										<div key={item.number.inSurah} className="flex flex-col border-b px-6 py-4">
+											<span className="mb-4">
+												<Tag color="#108ee9">{item.number.inSurah}</Tag>
+											</span>
 
-										<p className="arabic text-right text-lg mb-2">{item.text.arab}</p>
-										<p className="text-sm">{item.translation.id}</p>
-									</div>
-								);
-							})}
-						</div>
+											<p className="arabic text-right text-lg mb-2">{item.text.arab}</p>
+											<p className="text-sm">{item.translation.id}</p>
+										</div>
+									);
+								})}
+							</div>
+						</>
 					)}
 				</>
 			)}
