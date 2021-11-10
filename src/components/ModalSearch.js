@@ -42,10 +42,12 @@ export default function ModalSearch(props) {
 
 		const dataSelected = selected[0];
 
-		if (ayat > dataSelected.totalAyat) {
-			message.warning(`Ayat paling terakhir yaitu ${dataSelected.totalAyat}`);
+		if (surat === undefined) {
+			message.warning(`Surat wajib diisi!`);
 		} else if (ayat === undefined) {
 			history.push(`surat/${surat}`);
+		} else if (ayat > dataSelected.totalAyat) {
+			message.warning(`Ayat paling terakhir yaitu ${dataSelected.totalAyat}`);
 		} else {
 			history.push(`surat/${surat}/${ayat}`);
 		}
