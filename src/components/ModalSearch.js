@@ -44,6 +44,8 @@ export default function ModalSearch(props) {
 
 		if (ayat > dataSelected.totalAyat) {
 			message.warning(`Ayat paling terakhir yaitu ${dataSelected.totalAyat}`);
+		} else if (ayat === undefined) {
+			history.push(`surat/${surat}`);
 		} else {
 			history.push(`surat/${surat}/${ayat}`);
 		}
@@ -72,7 +74,7 @@ export default function ModalSearch(props) {
 									);
 								})}
 							</SelectData>
-							<InputNumber placeholder="Pilih ayat" value={ayat} onChange={onChange} />
+							<InputNumber placeholder="Pilih ayat" min={1} value={ayat} onChange={onChange} />
 						</div>
 					</Modal>
 				</div>
